@@ -1,0 +1,35 @@
+.navbar-expand-md     {
+    background: #6ab446;
+    width: 100%;
+}
+.nav-link, .navbar-brand    {
+    color: #fff;
+    cursor: pointer;
+}
+.nav-link, .navbar-brand   { margin-right: 1.0em !important; }
+.nav-link:hover, .navbar-brand:hover { color: #000; }
+.navbar-collapse { justify-content: flex-end; }
+a { text-decoration: none; }
+.navbar-header { 
+    font-weight: bolder;
+    letter-spacing: 0.3ex;
+}
+.fva-main   {
+    padding-top: 2.0rem;
+}
+.fva-sidebar    {
+    padding: 1.5em;
+}
+.content h3, p  {
+    color: rgb(5, 116, 24);
+}
+li {
+    list-style: ;
+}
+body {
+    height: 150vh;
+}
+input  {
+    border-radius: 10px;
+    padding: 0.3rem;
+}

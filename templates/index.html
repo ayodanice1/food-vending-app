@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block header %}
+    <div class="header">
+        <div class="container">
+            <nav class="nav">
+                <h1 style="color: rgb(5, 116, 24); margin-top: 1.0em;">
+                    <strong>FoodVendingApp</strong>
+                    <br>{% block page-name %} Home {% endblock %}
+                </h1>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <h1>{{ message }} {{ error }}</h1>
+    <p class='lead'>
+        We establish a market place for food vendors to meet food buyers
+    </p>
+{% endblock main %}
+
+{% block sidebar %}
+    <div>
+        <p>Register here:</p>
+        <p>
+            <span class="badge badge-primary">
+                <a class="nav-link" href="http://127.0.0.1:8000/api/vendors/register/">Vendor</a>
+            </span>
+        </p>
+        <p>
+            <span class="badge badge-primary">
+                <a class="nav-link" href="http://127.0.0.1:8000/api/customers/register/">Customer</a>
+            </span>
+        </p>
+        <p>
+            Login here:
+        </p>
+        <div class='side-login-form'>
+            <form action="/api/login/" method="POST" >
+                <input type="text" name="email" placeholder="Email" style='margin-bottom: 1.0rem;' />
+                <input type="password" name="password" placeholder="Password" style='margin-bottom: 1.0rem;' />
+                <input type="submit" value='LOGIN' />
+            </form>
+        </div>
+    </div>
+{% endblock sidebar %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block navigation %}
+    <div class="navigation">
+        <nav class="navbar navbar-expand-md" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://127.0.0.1:8000" 
+                    style="font-weight: bold;">
+                    FoodVendingApp
+                </a>
+            </div>
+            <div id="nav-menu pull-right" class="navbar-right">
+                <ul class="navbar-nav" style="font-weight: bold">
+                    {% if user.is_vendor %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:8000/api/menus/">Menus</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:8000/api/vendors/">Vendors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://127.0.0.1:8000/api/menus/">Available Menus</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/api/orders/">View Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/api/notifications/">Notifications</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
+{% block sidebar %}
+    <div>
+        <p style="font-size: 18pt; font-weight: 700; font-family: ">YOUR PROFILE:</p>
+        <p>
+            <bold>User ID: </bold>
+            <span class="badge badge-primary">
+                {{ user.id}}
+            </span>
+        </p>
+        <p>
+            <bold>Email: </bold>
+            <span class="badge badge-primary">
+                {{ user.email}}
+            </span>
+        </p>
+        <p>
+            <bold>Phone number: </bold>
+            <span class="badge badge-primary">
+                {{ user.phone_number}}
+            </span>
+        </p>
+        <div class='side-form'>
+            <form action="/api/logout/" method="POST" >
+                <input type="submit" value='LOGOUT' />
+            </form>
+        </div>
+    </div>
+    <div style='margin-top: 1.5em;'>
+        {{ status }}
+        <form action='/notifications/send/' method='POST'>
+            <input type='email' name='receiver' placeholder='Receiver e-mail' style='margin-bottom: 0.5em;' />
+            <input type='text' name='subject' placeholder='Notification subject' style='margin-bottom: 0.5em;' />
+            <input type='text' name='body' placeholder='Notification body' style='margin-bottom: 0.5em; height: 100px' />
+            <input type='submit' value='SEND' />
+            <input type='reset' value='RESET FORM' />
+        </form>
+    </div>
+{% endblock sidebar %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>FoodVendingApp - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'bootstrap-4.3.1/dist/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'fva.css' %}">
+        <style>
+            .header { background-color: #EEEFFE; margin-bottom: 1em; }
+            body { font-family: Verdana, Geneva, Tahoma, sans-serif; }
+            h1 { color: #6ab446; }
+        </style>
+    </head>
+    <body class="clearfix">
+        <div class="header">
+            <div class="container">
+                <nav class="nav">
+                    <h1 style="color: rgb(5, 116, 24); margin-top: 1.0em;">
+                        <strong>FoodVendingApp</strong>
+                        <br>{% block page-name %}{% endblock %}
+                    </h1>
+                </nav>
+            </div>
+        </div>
+        {% block navigation %}
+        {% endblock %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 fva-main">
+                    {% block main %}{% endblock %}
+                </div>
+                <div class="col-sm-3 offset-sm-1 fva-sidebar">
+                    {% block sidebar %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
